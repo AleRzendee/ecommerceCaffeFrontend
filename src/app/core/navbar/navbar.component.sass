@@ -1,0 +1,29 @@
+.navbar
+  background-color: #fff
+  padding: 1rem 2rem
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05)
+  font-family: 'Inter', sans-serif
+
+  &__container
+    max-width: 1200px
+    margin: 0 auto
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+  &__logo img
+    height: 40px
+
+  &__menu
+    display: flex
+    gap: 1.5rem
+
+    a
+      color: #5c4033
+      text-decoration: none
+      font-weight: 500
+      transition: color 0.3s ease
+
+      &:hover,
+      &.active
+        color: #a97452
