@@ -1,0 +1,46 @@
+.carrinho-container
+  max-width: 800px
+  margin: auto
+  padding: 2rem
+  display: flex
+  flex-direction: column
+  gap: 2rem
+
+  h2
+    font-size: 2rem
+    color: #4a2c13
+
+  .item
+    border-bottom: 1px solid #ddd
+    padding-bottom: 1rem
+    margin-bottom: 1rem
+
+    .info
+      display: flex
+      flex-direction: column
+      gap: 0.25rem
+
+      h3
+        font-size: 1.2rem
+        color: #333
+
+    .subtotal
+      margin-top: 0.5rem
+      color: #6b4a2b
+
+  .total
+    font-size: 1.25rem
+    color: #000
+
+  .finalizar
+    background-color: #8b5e3c
+    color: white
+    border: none
+    padding: 0.75rem 1.5rem
+    border-radius: 0.25rem
+    cursor: pointer
+    align-self: flex-start
+    transition: background-color 0.3s ease
+
+    &:hover
+      background-color: #5c3a23

@@ -15,6 +15,6 @@ export const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'auth', component: AuthComponent },
   { path: '**', component: NotFoundComponent },
-  { path: 'produtos/:id', loadComponent: () => import('./pages/product-details/product-details.component').then(m => m.ProductDetailsComponent)
-  },
+  { path: 'produtos/:id', loadComponent: () => import('./pages/product-details/product-details.component').then(m => m.ProductDetailsComponent) },
+  { path: 'carrinho', loadComponent: () => import('./pages/cart/cart.component').then(m => m.CartComponent) }
 ];
