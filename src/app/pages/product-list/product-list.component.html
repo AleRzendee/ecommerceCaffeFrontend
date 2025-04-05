@@ -1,1 +1,15 @@
-<p>product-list works!</p>
+<section class="product-list">
+  <div class="container">
+    <h2>Nossos Cafés</h2>
+    <div class="products">
+      <!-- Exemplo estático de produto -->
+      <div class="product-card" *ngFor="let product of produtos">
+        <img [src]="product.imagem" [alt]="product.nome" />
+        <h3>{{ product.nome }}</h3>
+        <p class="descricao">{{ product.descricao }}</p>
+        <p class="preco">R$ {{ product.preco | number:'1.2-2' }}</p>
+        <a [routerLink]="['/produtos', product.id]" class="ver-detalhes">Ver Detalhes</a>
+      </div>
+    </div>
+  </div>
+</section>
