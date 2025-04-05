@@ -8,11 +8,11 @@ import { AuthComponent } from './pages/auth.component';
 import { NotFoundComponent } from './shared/not-found.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, title: 'CaféGourmet - Início' },
   { path: 'produtos', component: ProductListComponent },
   { path: 'produto/:id', component: ProductDetailsComponent },
   { path: 'carrinho', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'auth', component: AuthComponent },
-  { path: '**', component: NotFoundComponent }, // Rota coringa para páginas não encontradas
+  { path: '**', component: NotFoundComponent },
 ];
