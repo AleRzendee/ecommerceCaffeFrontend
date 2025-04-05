@@ -1,0 +1,18 @@
+<div class="carrinho-container">
+  <h2>Seu Carrinho</h2>
+
+  <div class="item" *ngFor="let item of cartItems">
+    <div class="info">
+      <h3>{{ item.nome }}</h3>
+      <p>Quantidade: {{ item.quantidade }}</p>
+      <p>Preço unitário: R$ {{ item.preco | number:'1.2-2' }}</p>
+    </div>
+    <p class="subtotal">Subtotal: R$ {{ item.preco * item.quantidade | number:'1.2-2' }}</p>
+  </div>
+
+  <div class="total">
+    <p>Total: <strong>R$ {{ total | number:'1.2-2' }}</strong></p>
+  </div>
+
+  <button class="finalizar" [routerLink]="['/checkout']">Finalizar Compra</button>
+</div>
