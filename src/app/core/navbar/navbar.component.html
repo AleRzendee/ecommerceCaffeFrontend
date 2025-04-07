@@ -1,43 +1,33 @@
 <nav class="navbar">
-  <img src="logo.png" alt="Logo" class="logo">
+  <!-- Logo -->
+  <a routerLink="/" class="logo-link">
+    <img src="assets/logo-cafe.png" alt="Café Gourmet" class="logo" />
+  </a>
 
-  <input type="text" [(ngModel)]="searchTerm" (input)="filterProducts()" placeholder="Buscar cafés..."
-    class="search-bar" />
+  <!-- Barra de busca -->
+  <div class="search-container">
+    <input type="text" placeholder="Buscar cafés..." [(ngModel)]="searchTerm" (input)="filterProducts()" />
+    <ul class="search-dropdown" *ngIf="filteredProdutos.length && searchTerm">
+      <li *ngFor="let produto of filteredProdutos" (click)="goToProduct(produto.id)">
+        {{ produto.nome }}
+      </li>
+    </ul>
+  </div>
 
-  <ul *ngIf="searchTerm && filteredProdutos.length" class="search-results">
-    <li *ngFor="let produto of filteredProdutos">
-      {{ produto.nome }}
-    </li>
-  </ul>
-
+  <!-- Links do menu -->
   <ul class="nav-links">
-    <li><a routerLink="/produtos">Produtos</a></li>
-    <li><a routerLink="/sobre">Sobre nós</a></li>
-    <li><a routerLink="/login">Login</a></li>
+    <li><a routerLink="/produtos" routerLinkActive="active">Produtos</a></li>
+    <li><a routerLink="/sobre" routerLinkActive="active">Sobre nós</a></li>
+    <li><a routerLink="/auth" routerLinkActive="active">Login</a></li>
   </ul>
 
-  <div class="cart-icon" (click)="toggleCartSidebar()">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.6 8h13.2L17 13M7 13H5.4" />
+  <!-- Ícone do carrinho -->
+  <button class="cart-button" (click)="toggleSidebar()">
+    <!-- Ícone de bolsa (SVG) -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        d="M7 7V6a5 5 0 0110 0v1h3a1 1 0 011 1v2a1 1 0 01-.293.707l-2.707 2.707A1 1 0 0118 13H6a1 1 0 01-.707-.293L2.586 10.707A1 1 0 012.293 10H3V8a1 1 0 011-1h3zm2 0h6V6a3 3 0 00-6 0v1z" />
     </svg>
-    <span *ngIf="cartCount > 0" class="cart-badge">{{ cartCount }}</span>
-  </div>
+    <span class="badge" *ngIf="cartQuantity > 0">{{ cartQuantity }}</span>
+  </button>
 </nav>
-
-<!-- Sidebar -->
-<div [ngClass]="{ 'cart-sidebar': true, 'hidden': !isCartOpen }">
-  <div class="cart-header">
-    <h3 class="text-lg font-semibold">Seu Carrinho</h3>
-    <button class="cart-close-btn" (click)="toggleCartSidebar()">✕</button>
-  </div>
-  <div>
-    <div *ngFor="let item of cartItems" class="cart-item">
-      <div class="cart-item-info">
-        <p>{{ item.nome }}</p>
-        <p>R$ {{ item.preco | number: '1.2-2' }}</p>
-      </div>
-      <p class="text-sm font-medium">x{{ item.quantidade }}</p>
-    </div>
-  </div>
-</div>
