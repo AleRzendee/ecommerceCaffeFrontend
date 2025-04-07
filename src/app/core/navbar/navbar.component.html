@@ -1,11 +1,35 @@
 <nav class="navbar">
-  <a routerLink="/" class="logo-link">
-    <img src="logo.png" alt="Logo CaféGourmet" class="logo-img" />
-  </a>
+  <div class="navbar__logo">
+    <a routerLink="/">
+      <img src="logo.png" alt="Café Gourmet" />
+    </a>
+  </div>
 
-  <ul class="nav-links">
-    <li><a routerLink="/produtos" routerLinkActive="ativo">Produtos</a></li>
-    <li><a routerLink="/carrinho" routerLinkActive="ativo">Carrinho</a></li>
-    <li><a routerLink="/auth" routerLinkActive="ativo">Login</a></li>
+  <div class="navbar__search">
+    <input type="text" placeholder="Buscar cafés..." [(ngModel)]="searchTerm" (input)="onSearch()"
+      (focus)="showSuggestions = true" (blur)="hideSuggestions()" />
+
+    <ul class="suggestions" *ngIf="showSuggestions && filteredProdutos.length">
+      <li *ngFor="let produto of filteredProdutos" (mousedown)="goToProduct(produto.id)">
+        <img [src]="produto.imagem" alt="{{ produto.nome }}" />
+        <div>
+          <p>{{ produto.nome }}</p>
+          <span>R$ {{ produto.preco | number: '1.2-2' }}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+
+
+  <ul class="navbar__links">
+    <li><a routerLink="/produtos" routerLinkActive="active">Produtos</a></li>
+    <li><a routerLink="/sobre" routerLinkActive="active">Sobre nós</a></li>
+    <li><a routerLink="/auth" routerLinkActive="active">Login</a></li>
+    <li>
+      <a routerLink="/carrinho" aria-label="Carrinho">
+        <img src="assets/icons/bag.svg" alt="Carrinho" class="navbar__icon" />
+      </a>
+    </li>
   </ul>
 </nav>

@@ -1,29 +1,58 @@
-.navbar
-  display: flex
-  justify-content: space-between
-  align-items: center
-  padding: 1rem 2rem
-  background-color: #fff
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1)
+.navbar__search
+  position: relative
 
-.logo-img
-  height: 60px
-  object-fit: contain
+  input
+    border: none
+    border-bottom: 2px solid #ccc
+    padding: 0.5rem 0
+    width: 300px
+    font-size: 1rem
+    background: transparent
+    outline: none
 
-.nav-links
-  display: flex
-  gap: 2rem
-  list-style: none
+    &:focus
+      border-color: #c27c47
 
-.nav-links a
-  text-decoration: none
-  color: #333
-  font-size: 1.2rem
-  font-family: 'Inter', sans-serif
-  font-weight: 500
+  .suggestions
+    position: absolute
+    top: 100%
+    left: 0
+    right: 0
+    background: #fff
+    border: 1px solid #ddd
+    border-top: none
+    max-height: 250px
+    overflow-y: auto
+    z-index: 10
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05)
+    padding: 0
 
-.nav-links a:hover
-  color: #ab4c11
+    li
+      display: flex
+      align-items: center
+      gap: 0.75rem
+      padding: 0.75rem 1rem
+      cursor: pointer
+      transition: background 0.2s ease
 
-.nav-links a.ativo
-  color: #92400e
+      &:hover
+        background: #f9f9f9
+
+      img
+        width: 40px
+        height: 40px
+        object-fit: cover
+        border-radius: 4px
+
+      div
+        display: flex
+        flex-direction: column
+
+        p
+          margin: 0
+          font-size: 0.95rem
+          font-weight: 500
+
+        span
+          font-size: 0.85rem
+          color: #555

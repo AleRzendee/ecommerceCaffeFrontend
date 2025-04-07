@@ -1,4 +1,0 @@
-1. Cafés Especiais & Gourmet ( pode deixar as artes comigo )
-2. Pode ter tudo isso no MVP
-3. Um layout minimalista, com uma paleta branca e tons de marrom e caramelo. Tipografia em Inter, artes de alta qualidade que você deve apenas posiciona-las no código, permita me cria-las. E claro, animações suaves para um UX/UI profissional.
-4. Em relação as tecnologias, se você acha melhor o Angular para Front-end, ok, mas podemos usar Sass para estilização? E o Back-end pode ser em Node.js com Express e sobre o banco a se utilizar, que seja nada muito complexo, sistema básico, defina o melhor. Autenticação com Firebase Authentication, pagamentos podem ser apenas simulação Chat, não precisa estar em operação. E por fim, uma hospedagem no vercel.

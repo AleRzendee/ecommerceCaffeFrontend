@@ -1,12 +1,42 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.sass'
+  styleUrls: ['./navbar.component.sass']
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+  searchTerm: string = '';
+  showSuggestions: boolean = false;
+
+  produtos = [
+    { id: 1, nome: 'Café Clássico', preco: 18.5, imagem: 'assets/produtos/cafe-classico.png' },
+    { id: 2, nome: 'Café Expresso', preco: 22.0, imagem: 'assets/produtos/cafe-expresso.png' },
+    { id: 3, nome: 'Café Orgânico', preco: 25.9, imagem: 'assets/produtos/cafe-organico.png' },
+    { id: 4, nome: 'Café Gourmet Especial', preco: 32.4, imagem: 'assets/produtos/cafe-gourmet.png' }
+  ];
+
+  filteredProdutos = this.produtos;
+
+  onSearch() {
+    const termo = this.searchTerm.toLowerCase();
+    this.filteredProdutos = this.produtos.filter(p =>
+      p.nome.toLowerCase().includes(termo)
+    );
+  }
+
+  hideSuggestions() {
+    setTimeout(() => {
+      this.showSuggestions = false;
+    }, 200);
+  }
+
+  goToProduct(id: number) {
+    window.location.href = `/produtos/${id}`;
+  }
+}
