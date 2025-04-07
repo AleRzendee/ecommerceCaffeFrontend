@@ -12,17 +12,17 @@ export class ProductListComponent {
   produtos = [
     {
       id: 1,
-      nome: 'Café Bourbon Amarelo',
-      descricao: 'Café suave com notas florais e acidez equilibrada.',
-      preco: 28.50,
-      imagem: '/assets/images/cafe-bourbon.jpg'
+      nome: 'Caffè Byellow Média Escura',
+      descricao: 'Descubra a delicadeza e a doçura do Bourbon Amarelo Média Escura.',
+      preco: 119.90,
+      imagem: 'bourbon-yellow-md.png'
     },
     {
       id: 2,
-      nome: 'Café Catuaí Vermelho',
-      descricao: 'Café encorpado com sabor achocolatado.',
-      preco: 32.00,
-      imagem: '/assets/images/cafe-catuai.jpg'
+      nome: 'Café CatuRed Torra Clara',
+      descricao: 'Descubra a leveza e a complexidade do Catuaí Vermelho com torra clara.',
+      preco: 159.90,
+      imagem: 'catuai-red-light.png'
     },
     {
       id: 3,
