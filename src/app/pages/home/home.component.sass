@@ -1,31 +1,95 @@
-.home
-  background: url('/assets/images/coffee-banner.jpg') center/cover no-repeat
-  min-height: 70vh
-  display: flex
-  align-items: center
-  color: #fff
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7)
+.hero
+  background: url('/assets/hero-cafe.jpg') center/cover no-repeat
+  color: white
+  text-align: center
+  padding: 6rem 2rem
 
-  .container
-    max-width: 1024px
-    margin: 0 auto
+  .conteudo
+    background: rgba(0, 0, 0, 0.5)
     padding: 2rem
+    border-radius: 8px
+    max-width: 600px
+    margin: 0 auto
 
     h1
-      font-size: 3rem
+      font-size: 2.5rem
       margin-bottom: 1rem
 
     p
-      font-size: 1.25rem
+      font-size: 1.1rem
       margin-bottom: 2rem
 
-    .button
-      background-color: #c47f17
-      color: #fff
+    .btn-destaque
+      display: inline-block
       padding: 0.75rem 1.5rem
-      border-radius: 4px
+      background-color: #8b5e3c
+      color: white
       text-decoration: none
-      font-weight: 500
+      border-radius: 5px
+      font-weight: bold
 
       &:hover
-        background-color: #a8650f
+        background-color: #5c3a23
+
+.destaques
+  padding: 4rem 2rem
+  text-align: center
+  background: #f9f4ef
+
+  h2
+    margin-bottom: 2rem
+    font-size: 2rem
+    color: #4a2c13
+
+  .lista
+    display: flex
+    flex-wrap: wrap
+    gap: 2rem
+    justify-content: center
+
+    .item
+      background: white
+      border: 1px solid #ddd
+      border-radius: 8px
+      padding: 1rem
+      width: 200px
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05)
+
+      img
+        width: 100%
+        height: 160px
+        object-fit: cover
+        border-radius: 4px
+
+      h3
+        font-size: 1.1rem
+        margin: 0.5rem 0
+
+      .preco
+        font-weight: bold
+        color: #8b5e3c
+        margin-bottom: 0.5rem
+
+      .btn-ver
+        display: inline-block
+        padding: 0.4rem 1rem
+        background: #8b5e3c
+        color: white
+        text-decoration: none
+        border-radius: 4px
+        font-size: 0.85rem
+
+.sobre
+  padding: 4rem 2rem
+  text-align: center
+  max-width: 700px
+  margin: 0 auto
+
+  h2
+    font-size: 2rem
+    color: #4a2c13
+    margin-bottom: 1rem
+
+  p
+    font-size: 1rem
+    color: #444

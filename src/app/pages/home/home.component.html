@@ -1,7 +1,27 @@
-<section class="home">
-  <div class="container">
-    <h1>Bem-vindo ao CaféGourmet ☕</h1>
-    <p>Explore cafés especiais e viva uma nova experiência de sabor.</p>
-    <a routerLink="/produtos" class="button">Ver Produtos</a>
+<section class="hero">
+  <div class="conteudo">
+    <h1>Descubra os sabores dos melhores cafés gourmet</h1>
+    <p>Seleção especial de grãos artesanais direto do produtor até a sua xícara.</p>
+    <a routerLink="/produtos" class="btn-destaque">Ver Produtos</a>
   </div>
+</section>
+
+<section class="destaques">
+  <h2>Mais vendidos</h2>
+  <div class="lista">
+    <div class="item" *ngFor="let cafe of cafes">
+      <img [src]="cafe.imagem" alt="{{ cafe.nome }}" />
+      <h3>{{ cafe.nome }}</h3>
+      <p class="preco">R$ {{ cafe.preco | number:'1.2-2' }}</p>
+      <a [routerLink]="['/produtos', cafe.id]" class="btn-ver">Ver</a>
+    </div>
+  </div>
+</section>
+
+<section class="sobre">
+  <h2>Sobre o CaféGourmet</h2>
+  <p>
+    Apaixonados por café, reunimos uma curadoria de grãos premium para quem valoriza aroma, sabor e origem. Cada
+    produto é selecionado para garantir a melhor experiência.
+  </p>
 </section>
