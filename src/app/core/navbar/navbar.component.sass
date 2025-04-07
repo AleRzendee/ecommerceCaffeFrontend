@@ -1,29 +1,24 @@
 .navbar
-  background-color: #fff
+  display: flex
+  justify-content: space-between
+  align-items: center
   padding: 1rem 2rem
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05)
-  font-family: 'Inter', sans-serif
+  background-color: #fff
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1)
 
-  &__container
-    max-width: 1200px
-    margin: 0 auto
-    display: flex
-    justify-content: space-between
-    align-items: center
+.logo-img
+  height: 40px
+  object-fit: contain
 
-  &__logo img
-    height: 40px
+.nav-links
+  display: flex
+  gap: 2rem
+  list-style: none
 
-  &__menu
-    display: flex
-    gap: 1.5rem
+.nav-links a
+  text-decoration: none
+  color: #333
+  font-weight: 500
 
-    a
-      color: #5c4033
-      text-decoration: none
-      font-weight: 500
-      transition: color 0.3s ease
-
-      &:hover,
-      &.active
-        color: #a97452
+.nav-links a.ativo
+  color: #92400e

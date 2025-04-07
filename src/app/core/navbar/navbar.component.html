@@ -1,14 +1,11 @@
-<header class="navbar">
-  <div class="navbar__container">
-    <div class="navbar__logo">
-      <img src="./core/navbar/caffe-logo.png" alt="Logo Café" />
-    </div>
+<nav class="navbar">
+  <a routerLink="/" class="logo-link">
+    <img src="logo.png" alt="Logo CaféGourmet" class="logo-img" />
+  </a>
 
-    <nav class="navbar__menu">
-      <a routerLink="/" routerLinkActive="active">Home</a>
-      <a routerLink="/produtos" routerLinkActive="active">Produtos</a>
-      <a routerLink="/carrinho" routerLinkActive="active">Carrinho</a>
-      <a routerLink="/login" routerLinkActive="active">Login</a>
-    </nav>
-  </div>
-</header>
+  <ul class="nav-links">
+    <li><a routerLink="/produtos" routerLinkActive="ativo">Produtos</a></li>
+    <li><a routerLink="/carrinho" routerLinkActive="ativo">Carrinho</a></li>
+    <li><a routerLink="/auth" routerLinkActive="ativo">Login</a></li>
+  </ul>
+</nav>
