@@ -7,26 +7,26 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './auth.component.html',
-  styleUrl: './auth.component.sass'
+  styleUrls: ['./auth.component.sass']
 })
 export class AuthComponent {
-  isLogin = true;
+  abaAtual: 'login' | 'cadastro' = 'login';
 
-  email = '';
-  senha = '';
-  nome = '';
+  usuario = {
+    nome: '',
+    email: '',
+    senha: ''
+  };
 
-  alternarModo() {
-    this.isLogin = !this.isLogin;
+  trocarAba(aba: 'login' | 'cadastro') {
+    this.abaAtual = aba;
   }
 
-  autenticar() {
-    if (this.isLogin) {
-      console.log('Login simulado:', this.email, this.senha);
-    } else {
-      console.log('Cadastro simulado:', this.nome, this.email, this.senha);
-    }
+  login() {
+    alert(`Login simulado para: ${this.usuario.email}`);
+  }
 
-    alert(`${this.isLogin ? 'Login' : 'Cadastro'} realizado com sucesso (simulado)!`);
+  cadastrar() {
+    alert(`Cadastro simulado para: ${this.usuario.nome}`);
   }
 }
