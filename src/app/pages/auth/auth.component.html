@@ -1,31 +1,25 @@
 <div class="auth-container">
-  <div class="tabs">
-    <button (click)="isLogin = true" [class.ativo]="isLogin">Login</button>
-    <button (click)="isLogin = false" [class.ativo]="!isLogin">Cadastro</button>
+  <div class="abas">
+    <button [class.ativa]="abaAtual === 'login'" (click)="trocarAba('login')">Login</button>
+    <button [class.ativa]="abaAtual === 'cadastro'" (click)="trocarAba('cadastro')">Cadastro</button>
   </div>
 
-  <form (ngSubmit)="autenticar()" #formAuth="ngForm">
-    <h2>{{ isLogin ? 'Entrar' : 'Criar Conta' }}</h2>
-
-    <div *ngIf="!isLogin">
-      <label>
-        Nome completo:
-        <input type="text" name="nome" [(ngModel)]="nome" required />
-      </label>
+  <form (ngSubmit)="abaAtual === 'login' ? login() : cadastrar()" #form="ngForm">
+    <div *ngIf="abaAtual === 'cadastro'" class="campo">
+      <label>Nome</label>
+      <input type="text" [(ngModel)]="usuario.nome" name="nome" required />
     </div>
 
-    <label>
-      E-mail:
-      <input type="email" name="email" [(ngModel)]="email" required />
-    </label>
+    <div class="campo">
+      <label>Email</label>
+      <input type="email" [(ngModel)]="usuario.email" name="email" required />
+    </div>
 
-    <label>
-      Senha:
-      <input type="password" name="senha" [(ngModel)]="senha" required />
-    </label>
+    <div class="campo">
+      <label>Senha</label>
+      <input type="password" [(ngModel)]="usuario.senha" name="senha" required />
+    </div>
 
-    <button type="submit" [disabled]="formAuth.invalid">
-      {{ isLogin ? 'Entrar' : 'Cadastrar' }}
-    </button>
+    <button type="submit">{{ abaAtual === 'login' ? 'Entrar' : 'Cadastrar' }}</button>
   </form>
 </div>
