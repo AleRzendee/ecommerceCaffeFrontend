@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.sass'
+  styleUrls: ['./home.component.sass']
 })
 export class HomeComponent {
   cafes = [
@@ -27,5 +30,4 @@ export class HomeComponent {
       imagem: '/assets/cafes/blend.jpg'
     }
   ];
-
 }
