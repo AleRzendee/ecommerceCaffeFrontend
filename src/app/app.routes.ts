@@ -10,9 +10,9 @@ import { NotFoundComponent } from './shared/not-found.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent, title: 'CaféGourmet - Início' },
   { path: 'produtos', component: ProductListComponent, title: 'CaféGourmet - Produtos' },
-  { path: 'auth', component: AuthComponent },
-  { path: '**', component: NotFoundComponent },
   { path: 'produtos/:id', loadComponent: () => import('./pages/product-details/product-details.component').then(m => m.ProductDetailsComponent) },
   { path: 'carrinho', loadComponent: () => import('./pages/cart/cart.component').then(m => m.CartComponent) },
-  { path: 'checkout', loadComponent: () => import('./pages/checkout/checkout.component').then(m => m.CheckoutComponent) }
+  { path: 'checkout', loadComponent: () => import('./pages/checkout/checkout.component').then(m => m.CheckoutComponent) },
+  { path: 'auth', loadComponent: () => import('./pages/auth/auth.component').then(m => m.AuthComponent) },
+  { path: '**', component: NotFoundComponent },
 ];

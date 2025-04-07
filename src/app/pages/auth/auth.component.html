@@ -1,0 +1,31 @@
+<div class="auth-container">
+  <div class="tabs">
+    <button (click)="isLogin = true" [class.ativo]="isLogin">Login</button>
+    <button (click)="isLogin = false" [class.ativo]="!isLogin">Cadastro</button>
+  </div>
+
+  <form (ngSubmit)="autenticar()" #formAuth="ngForm">
+    <h2>{{ isLogin ? 'Entrar' : 'Criar Conta' }}</h2>
+
+    <div *ngIf="!isLogin">
+      <label>
+        Nome completo:
+        <input type="text" name="nome" [(ngModel)]="nome" required />
+      </label>
+    </div>
+
+    <label>
+      E-mail:
+      <input type="email" name="email" [(ngModel)]="email" required />
+    </label>
+
+    <label>
+      Senha:
+      <input type="password" name="senha" [(ngModel)]="senha" required />
+    </label>
+
+    <button type="submit" [disabled]="formAuth.invalid">
+      {{ isLogin ? 'Entrar' : 'Cadastrar' }}
+    </button>
+  </form>
+</div>
