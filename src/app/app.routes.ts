@@ -13,6 +13,6 @@ export const routes: Routes = [
   { path: 'produtos/:id', loadComponent: () => import('./pages/product-details/product-details.component').then(m => m.ProductDetailsComponent) },
   { path: 'carrinho', loadComponent: () => import('./pages/cart/cart.component').then(m => m.CartComponent) },
   { path: 'checkout', loadComponent: () => import('./pages/checkout/checkout.component').then(m => m.CheckoutComponent) },
-  { path: 'auth', loadComponent: () => import('./pages/auth/auth.component').then(m => m.AuthComponent) },
+  { path: 'login', loadComponent: () => import('./pages/auth/auth.component').then(m => m.AuthComponent) },
   { path: '**', component: NotFoundComponent },
 ];

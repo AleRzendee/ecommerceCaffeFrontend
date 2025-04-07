@@ -29,7 +29,7 @@ export class ProductDetailsComponent {
     },
     {
       id: 2,
-      nome: 'Café Catuaí Vermelho',
+      nome: 'Caffè Catuaí Vermelho Torra Clara',
       descricao: 'Descubra a leveza e a complexidade do Catuaí Vermelho com torra clara, ideal para realçar suas nuances mais delicadas. Essa versão evidencia a acidez brilhante e frutada do grão, com um perfil limpo e aromático, perfeito para métodos filtrados. Com notas de frutas vermelhas, mel e chá preto, proporciona uma xícara elegante, suave e refrescante, valorizando a pureza da variedade e do terroir.',
       notes: 'Notas sensoriais: Frutas vermelhas, mel, chá preto.',
       sourness: 'Acidez: Alta e cítrica.',

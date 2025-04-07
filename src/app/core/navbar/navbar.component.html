@@ -1,47 +1,32 @@
 <nav class="navbar">
-  <div class="navbar__logo">
-    <a routerLink="/">
-      <img src="logo.png" alt="Café Gourmet" />
-    </a>
-  </div>
+  <img src="logo.png" alt="Logo" class="logo">
 
-  <div class="navbar__search">
-    <input type="text" placeholder="Buscar cafés..." [(ngModel)]="searchTerm" (input)="onSearch()"
-      (focus)="showSuggestions = true" (blur)="hideSuggestions()" />
+  <input type="text" [(ngModel)]="searchTerm" (input)="filterProducts()" placeholder="Buscar cafés..."
+    class="search-bar" />
 
-    <ul class="suggestions" *ngIf="showSuggestions && filteredProdutos.length">
-      <li *ngFor="let produto of filteredProdutos" (mousedown)="goToProduct(produto.id)">
-        <img [src]="produto.imagem" alt="{{ produto.nome }}" />
-        <div>
-          <p>{{ produto.nome }}</p>
-          <span>R$ {{ produto.preco | number: '1.2-2' }}</span>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-
-
-  <ul class="navbar__links">
-    <li><a routerLink="/produtos" routerLinkActive="active">Produtos</a></li>
-    <li><a routerLink="/sobre" routerLinkActive="active">Sobre nós</a></li>
-    <li><a routerLink="/auth" routerLinkActive="active">Login</a></li>
-    <li>
-      <div class="relative cursor-pointer" (click)="toggleCartSidebar()">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-zinc-700 hover:text-amber-700 transition"
-          fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.6 8h13.2L17 13M7 13H5.4" />
-        </svg>
-        <span *ngIf="cartCount > 0" class="cart-badge">
-          {{ cartCount }}
-        </span>
-      </div>
+  <ul *ngIf="searchTerm && filteredProdutos.length" class="search-results">
+    <li *ngFor="let produto of filteredProdutos">
+      {{ produto.nome }}
     </li>
   </ul>
+
+  <ul class="nav-links">
+    <li><a routerLink="/produtos">Produtos</a></li>
+    <li><a routerLink="/sobre">Sobre nós</a></li>
+    <li><a routerLink="/login">Login</a></li>
+  </ul>
+
+  <div class="cart-icon" (click)="toggleCartSidebar()">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.6 8h13.2L17 13M7 13H5.4" />
+    </svg>
+    <span *ngIf="cartCount > 0" class="cart-badge">{{ cartCount }}</span>
+  </div>
 </nav>
 
-<div [ngClass]="{'cart-sidebar': true, 'hidden': !isCartOpen}">
+<!-- Sidebar -->
+<div [ngClass]="{ 'cart-sidebar': true, 'hidden': !isCartOpen }">
   <div class="cart-header">
     <h3 class="text-lg font-semibold">Seu Carrinho</h3>
     <button class="cart-close-btn" (click)="toggleCartSidebar()">✕</button>

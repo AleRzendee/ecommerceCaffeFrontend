@@ -23,6 +23,17 @@ export class NavbarComponent {
 
   filteredProdutos = this.produtos;
 
+  filterProducts() {
+    if (!this.searchTerm || this.searchTerm.trim() === '') {
+      this.filteredProdutos = this.produtos;
+    } else {
+      const term = this.searchTerm.toLowerCase();
+      this.filteredProdutos = this.produtos.filter(produto =>
+        produto.nome.toLowerCase().includes(term)
+      );
+    }
+  }
+
   onSearch() {
     const termo = this.searchTerm.toLowerCase();
     this.filteredProdutos = this.produtos.filter(p =>

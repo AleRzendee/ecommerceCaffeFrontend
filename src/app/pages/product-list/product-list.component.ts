@@ -19,7 +19,7 @@ export class ProductListComponent {
     },
     {
       id: 2,
-      nome: 'Café CatuRed Torra Clara',
+      nome: 'Caffè CatuaíRed Torra Clara',
       descricao: 'Descubra a leveza e a complexidade do Catuaí Vermelho com torra clara.',
       preco: 159.90,
       imagem: 'catuai-red-light.png'
