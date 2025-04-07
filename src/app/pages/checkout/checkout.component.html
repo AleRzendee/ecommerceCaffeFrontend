@@ -1,0 +1,27 @@
+<div class="checkout-container" *ngIf="!enviado">
+  <h2>Finalizar Compra</h2>
+
+  <form (ngSubmit)="finalizarCompra()" #formCheckout="ngForm">
+    <label>
+      Nome completo:
+      <input type="text" [(ngModel)]="nome" name="nome" required />
+    </label>
+
+    <label>
+      E-mail:
+      <input type="email" [(ngModel)]="email" name="email" required />
+    </label>
+
+    <label>
+      Endereço de entrega:
+      <textarea [(ngModel)]="endereco" name="endereco" required></textarea>
+    </label>
+
+    <button type="submit" [disabled]="formCheckout.invalid">Confirmar Pedido</button>
+  </form>
+</div>
+
+<div class="mensagem-sucesso" *ngIf="enviado">
+  <h2>Compra realizada com sucesso!</h2>
+  <p>Obrigado por escolher o CaféGourmet ☕</p>
+</div>
