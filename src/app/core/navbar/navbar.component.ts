@@ -39,4 +39,20 @@ export class NavbarComponent {
   goToProduct(id: number) {
     window.location.href = `/produtos/${id}`;
   }
+
+  isCartOpen = false;
+
+  cartItems = [
+    { id: 1, nome: 'Café Expresso', preco: 14.90, quantidade: 1 },
+    { id: 2, nome: 'Café Moído', preco: 24.90, quantidade: 2 }
+  ];
+
+  get cartCount() {
+    return this.cartItems.reduce((total, item) => total + item.quantidade, 0);
+  }
+
+  toggleCartSidebar() {
+    this.isCartOpen = !this.isCartOpen;
+  }
+
 }

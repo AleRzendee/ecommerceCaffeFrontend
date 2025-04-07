@@ -27,9 +27,32 @@
     <li><a routerLink="/sobre" routerLinkActive="active">Sobre nós</a></li>
     <li><a routerLink="/auth" routerLinkActive="active">Login</a></li>
     <li>
-      <a routerLink="/carrinho" aria-label="Carrinho">
-        <img src="assets/icons/bag.svg" alt="Carrinho" class="navbar__icon" />
-      </a>
+      <div class="relative cursor-pointer" (click)="toggleCartSidebar()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-zinc-700 hover:text-amber-700 transition"
+          fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.6 8h13.2L17 13M7 13H5.4" />
+        </svg>
+        <span *ngIf="cartCount > 0" class="cart-badge">
+          {{ cartCount }}
+        </span>
+      </div>
     </li>
   </ul>
 </nav>
+
+<div [ngClass]="{'cart-sidebar': true, 'hidden': !isCartOpen}">
+  <div class="cart-header">
+    <h3 class="text-lg font-semibold">Seu Carrinho</h3>
+    <button class="cart-close-btn" (click)="toggleCartSidebar()">✕</button>
+  </div>
+  <div>
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <div class="cart-item-info">
+        <p>{{ item.nome }}</p>
+        <p>R$ {{ item.preco | number: '1.2-2' }}</p>
+      </div>
+      <p class="text-sm font-medium">x{{ item.quantidade }}</p>
+    </div>
+  </div>
+</div>
