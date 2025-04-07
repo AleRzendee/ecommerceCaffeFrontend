@@ -1,46 +1,53 @@
-.carrinho-container
-  max-width: 800px
-  margin: auto
-  padding: 2rem
+.titulo
+  font-size: 1.8rem
+  margin-bottom: 1.5rem
+  text-align: center
+
+.cart
   display: flex
   flex-direction: column
-  gap: 2rem
+  gap: 1.5rem
+  margin-bottom: 2rem
 
-  h2
-    font-size: 2rem
-    color: #4a2c13
+.item
+  display: flex
+  gap: 1rem
+  background: #f5f5f5
+  padding: 1rem
+  border-radius: 8px
 
-  .item
-    border-bottom: 1px solid #ddd
-    padding-bottom: 1rem
-    margin-bottom: 1rem
+  img
+    width: 100px
+    height: 100px
+    object-fit: cover
+    border-radius: 8px
 
-    .info
-      display: flex
-      flex-direction: column
-      gap: 0.25rem
+  .info
+    flex: 1
 
-      h3
-        font-size: 1.2rem
-        color: #333
+    h3
+      margin: 0
 
-    .subtotal
+    p
+      margin: 0.3rem 0
+
+    button
       margin-top: 0.5rem
-      color: #6b4a2b
+      padding: 0.4rem 0.8rem
+      background-color: #dc2626
+      color: white
+      border: none
+      border-radius: 4px
+      cursor: pointer
 
-  .total
-    font-size: 1.25rem
-    color: #000
+.resumo
+  text-align: center
 
-  .finalizar
-    background-color: #8b5e3c
+  .btn-finalizar
+    display: inline-block
+    margin-top: 1rem
+    background-color: #92400e
     color: white
-    border: none
-    padding: 0.75rem 1.5rem
-    border-radius: 0.25rem
-    cursor: pointer
-    align-self: flex-start
-    transition: background-color 0.3s ease
-
-    &:hover
-      background-color: #5c3a23
+    padding: 0.8rem 1.2rem
+    border-radius: 6px
+    text-decoration: none

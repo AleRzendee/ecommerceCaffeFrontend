@@ -7,25 +7,31 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './cart.component.html',
-  styleUrl: './cart.component.sass'
+  styleUrls: ['./cart.component.sass']
 })
 export class CartComponent {
   cartItems = [
     {
       id: 1,
-      nome: 'Café Bourbon Amarelo',
-      preco: 28.5,
-      quantidade: 1
+      nome: 'Café Arábica Premium',
+      preco: 29.9,
+      quantidade: 2,
+      imagem: 'https://via.placeholder.com/100'
     },
     {
       id: 2,
-      nome: 'Café Catuaí Vermelho',
-      preco: 32,
-      quantidade: 2
+      nome: 'Café Bourbon Gourmet',
+      preco: 34.5,
+      quantidade: 1,
+      imagem: 'https://via.placeholder.com/100'
     }
   ];
 
-  get total(): number {
-    return this.cartItems.reduce((sum, item) => sum + item.preco * item.quantidade, 0);
+  get subtotal() {
+    return this.cartItems.reduce((total, item) => total + item.preco * item.quantidade, 0);
+  }
+
+  removerItem(id: number) {
+    this.cartItems = this.cartItems.filter(item => item.id !== id);
   }
 }

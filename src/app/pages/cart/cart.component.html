@@ -1,18 +1,20 @@
-<div class="carrinho-container">
-  <h2>Seu Carrinho</h2>
+<h2 class="titulo">Meu Carrinho</h2>
 
+<div class="cart">
   <div class="item" *ngFor="let item of cartItems">
+    <img [src]="item.imagem" alt="{{ item.nome }}" />
+
     <div class="info">
       <h3>{{ item.nome }}</h3>
+      <p>Preço: R$ {{ item.preco | number:'1.2-2' }}</p>
       <p>Quantidade: {{ item.quantidade }}</p>
-      <p>Preço unitário: R$ {{ item.preco | number:'1.2-2' }}</p>
+      <p>Total: R$ {{ item.preco * item.quantidade | number:'1.2-2' }}</p>
+      <button (click)="removerItem(item.id)">Remover</button>
     </div>
-    <p class="subtotal">Subtotal: R$ {{ item.preco * item.quantidade | number:'1.2-2' }}</p>
   </div>
+</div>
 
-  <div class="total">
-    <p>Total: <strong>R$ {{ total | number:'1.2-2' }}</strong></p>
-  </div>
-
-  <button class="finalizar" [routerLink]="['/checkout']">Finalizar Compra</button>
+<div class="resumo">
+  <h3>Subtotal: R$ {{ subtotal | number:'1.2-2' }}</h3>
+  <a routerLink="/checkout" class="btn-finalizar">Finalizar Compra</a>
 </div>

@@ -8,8 +8,8 @@ import { AuthComponent } from './pages/auth/auth.component';
 import { NotFoundComponent } from './shared/not-found.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent, title: 'CaféGourmet - Início' },
-  { path: 'produtos', component: ProductListComponent, title: 'CaféGourmet - Produtos' },
+  { path: '', component: HomeComponent, title: 'Caffè Co.' },
+  { path: 'produtos', component: ProductListComponent, title: 'Caffè Co. - Nossos Produtos' },
   { path: 'produtos/:id', loadComponent: () => import('./pages/product-details/product-details.component').then(m => m.ProductDetailsComponent) },
   { path: 'carrinho', loadComponent: () => import('./pages/cart/cart.component').then(m => m.CartComponent) },
   { path: 'checkout', loadComponent: () => import('./pages/checkout/checkout.component').then(m => m.CheckoutComponent) },

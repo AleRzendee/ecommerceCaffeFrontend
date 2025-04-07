@@ -1,27 +1,34 @@
-<div class="checkout-container" *ngIf="!enviado">
-  <h2>Finalizar Compra</h2>
+<h2 class="titulo">Finalizar Compra</h2>
 
-  <form (ngSubmit)="finalizarCompra()" #formCheckout="ngForm">
-    <label>
-      Nome completo:
-      <input type="text" [(ngModel)]="nome" name="nome" required />
-    </label>
+<form class="formulario" (ngSubmit)="finalizarPedido()">
+  <label>
+    Nome:
+    <input type="text" [(ngModel)]="nome" name="nome" required />
+  </label>
 
-    <label>
-      E-mail:
-      <input type="email" [(ngModel)]="email" name="email" required />
-    </label>
+  <label>
+    Endereço de entrega:
+    <input type="text" [(ngModel)]="endereco" name="endereco" required />
+  </label>
 
-    <label>
-      Endereço de entrega:
-      <textarea [(ngModel)]="endereco" name="endereco" required></textarea>
-    </label>
+  <label>
+    Forma de pagamento:
+    <select [(ngModel)]="pagamento" name="pagamento">
+      <option value="cartao">Cartão de Crédito</option>
+      <option value="boleto">Boleto</option>
+      <option value="pix">PIX</option>
+    </select>
+  </label>
 
-    <button type="submit" [disabled]="formCheckout.invalid">Confirmar Pedido</button>
-  </form>
-</div>
+  <div class="resumo">
+    <h3>Resumo do Pedido</h3>
+    <ul>
+      <li *ngFor="let item of cartItems">
+        {{ item.nome }} (x{{ item.quantidade }}) — R$ {{ item.preco * item.quantidade | number:'1.2-2' }}
+      </li>
+    </ul>
+    <p><strong>Total: R$ {{ total | number:'1.2-2' }}</strong></p>
+  </div>
 
-<div class="mensagem-sucesso" *ngIf="enviado">
-  <h2>Compra realizada com sucesso!</h2>
-  <p>Obrigado por escolher o CaféGourmet ☕</p>
-</div>
+  <button type="submit" class="btn-confirmar">Confirmar Pedido</button>
+</form>
