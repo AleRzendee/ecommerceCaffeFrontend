@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Produto } from '../../models/produto.model';
 import { ProdutoService } from '../../services/produto.service';
 import { CarrinhoService } from '../../services/carrinho.service';
@@ -9,21 +10,31 @@ import { CarrinhoService } from '../../services/carrinho.service';
   styleUrls: ['./navbar.component.sass']
 })
 export class NavbarComponent implements OnInit {
-  pesquisa: string = '';
-  produtosFiltrados: Produto[] = [];
+  searchTerm: string = '';
+  filteredProdutos: Produto[] = [];
   sidebarAberta: boolean = false;
 
   constructor(
+    private router: Router,
     private produtoService: ProdutoService,
     private carrinhoService: CarrinhoService
   ) {}
 
   ngOnInit(): void {}
 
-  buscarProdutos() {
-    this.produtosFiltrados = this.pesquisa
-      ? this.produtoService.searchProdutos(this.pesquisa)
-      : [];
+  filterProducts() {
+    if (!this.searchTerm.trim()) {
+      this.filteredProdutos = [];
+      return;
+    }
+
+    this.filteredProdutos = this.produtoService.searchProdutos(this.searchTerm);
+  }
+
+  goToProduct(id: number) {
+    this.router.navigate(['/produtos', id]);
+    this.filteredProdutos = [];
+    this.searchTerm = '';
   }
 
   toggleCartSidebar() {
