@@ -6,7 +6,7 @@
 
   <!-- Barra de busca -->
   <div class="search-container">
-    <input type="text" placeholder="Buscar cafés..." [(ngModel)]="searchTerm" (input)="filterProducts()" />
+    <input type="text" placeholder="Buscar cafés..." />
     <ul class="search-dropdown" *ngIf="filteredProdutos.length && searchTerm">
       <li *ngFor="let produto of filteredProdutos" (click)="goToProduct(produto.id)">
         {{ produto.nome }}
