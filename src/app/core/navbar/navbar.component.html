@@ -6,10 +6,10 @@
 
   <!-- Barra de busca -->
   <div class="search-container">
-    <input type="text" placeholder="Buscar cafés..." />
-    <ul class="search-dropdown">
-      <li>
-        <h1>produto</h1>
+    <input type="text" placeholder="Buscar cafés..." [(ngModel)]="searchTerm" (input)="filterProducts()" />
+    <ul class="search-dropdown" *ngIf="filteredProdutos.length && searchTerm">
+      <li *ngFor="let produto of filteredProdutos" (click)="goToProduct(produto.id)">
+        {{ produto.nome }}
       </li>
     </ul>
   </div>
@@ -22,12 +22,12 @@
   </ul>
 
   <!-- Ícone do carrinho -->
-  <button class="cart-button">
+  <button class="cart-button" (click)="toggleSidebar()">
     <!-- Ícone de bolsa (SVG) -->
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <path
         d="M7 7V6a5 5 0 0110 0v1h3a1 1 0 011 1v2a1 1 0 01-.293.707l-2.707 2.707A1 1 0 0118 13H6a1 1 0 01-.707-.293L2.586 10.707A1 1 0 012.293 10H3V8a1 1 0 011-1h3zm2 0h6V6a3 3 0 00-6 0v1z" />
     </svg>
-    <span class="badge">Cart</span>
+    <span class="badge" *ngIf="cartQuantity > 0">{{ cartQuantity }}</span>
   </button>
 </nav>
